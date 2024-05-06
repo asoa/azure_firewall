@@ -1,0 +1,39 @@
+default:
+  tags: 
+    - docker
+  before_script:
+    - cd terraform
+    - export ARM_CLIENT_ID=$ARM_CLIENT_ID
+    - export ARM_CLIENT_SECRET=$ARM_CLIENT_SECRET
+    - export ARM_TENANT_ID=$ARM_TENANT_ID
+    - export ARM_SUBSCRIPTION_ID=$ARM_SUBSCRIPTION_ID
+    - export ARM_ENVIRONMENT=$ARM_ENVIRONMENT
+    - export ARM_SKIP_PROVIDER_REGISTRATION=true
+
+stages:
+  - validate
+  - plan
+  - apply
+
+validate:
+  stage: validate
+  image: asoa/azure-runner:3.0.0
+  script:
+    - terraform init
+    - terraform validate
+
+plan:
+  stage: plan
+  image: asoa/azure-runner:3.0.0
+  script:
+    - terraform init
+    - terraform plan
+
+apply: 
+  stage: apply
+  image: asoa/azure-runner:3.0.0
+  script:
+    - terraform init
+    - terraform apply -auto-approve
+
+

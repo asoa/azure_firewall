@@ -1,0 +1,118 @@
+
+      rule {
+        name                  = "Service Traffic"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = ["WindowsVirtualDesktop"]
+        destination_ports     = ["443"]
+        destination_fqdns     = [""]
+        }
+    
+      rule {
+        name                  = "Agent Traffic (1)"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = ["AzureMonitor"]
+        destination_ports     = ["443"]
+        destination_fqdns     = [""]
+        }
+    
+      rule {
+        name                  = "Agent Traffic (2)"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["443"]
+        destination_fqdns     = ["gcs.prod.monitoring.core.windows.net"]
+        }
+    
+      rule {
+        name                  = "Azure Marketplace"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = ["AzureFrontDoor.Frontend"]
+        destination_ports     = ["443"]
+        destination_fqdns     = [""]
+        }
+    
+      rule {
+        name                  = "Windows activation"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["1688"]
+        destination_fqdns     = ["kms.core.windows.net"]
+        }
+    
+      rule {
+        name                  = "Azure Windows activation"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["1688"]
+        destination_fqdns     = ["azkms.core.windows.net"]
+        }
+    
+      rule {
+        name                  = "Agent and SXS Stack Updates"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["443"]
+        destination_fqdns     = ["mrsglobalsteus2prod.blob.core.windows.net"]
+        }
+    
+      rule {
+        name                  = "Azure Portal Support"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["443"]
+        destination_fqdns     = ["wvdportalstorageblob.blob.core.windows.net"]
+        }
+    
+      rule {
+        name                  = "Azure Instance Metadata Service Endpoint"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = ["169.254.169.254"]
+        destination_ports     = ["80"]
+        destination_fqdns     = [""]
+        }
+    
+      rule {
+        name                  = "Session Host Health Monitoring"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = ["168.63.129.16"]
+        destination_ports     = ["80"]
+        destination_fqdns     = [""]
+        }
+    
+      rule {
+        name                  = "Certificate CRL OneOCSP"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["80"]
+        destination_fqdns     = ["oneocsp.microsoft.com"]
+        }
+    
+      rule {
+        name                  = "Certificate CRL MicrosoftDotCom"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["80"]
+        destination_fqdns     = ["www.microsoft.com"]
+        }
+    
+      rule {
+        name                  = "Authentication to Microsoft Online Services"
+        protocols             = ["TCP"]
+        source_addresses      = ["10.10.1.0/24"]
+        destination_addresses = [""]
+        destination_ports     = ["443"]
+        destination_fqdns     = ["login.microsoftonline.com"]
+        }
+    

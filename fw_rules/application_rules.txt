@@ -1,0 +1,61 @@
+
+      rule {
+        name                  = "TelemetryService"
+        protocols             {
+          type = "Https"
+          port = 443
+        }
+        source_addresses      = ["10.10.1.0/24"]
+        destination_fqdns     = ["*.events.data.microsoft.com"]
+        }
+    
+      rule {
+        name                  = "WindowsUpdate"
+        protocols             {
+          type = "Https"
+          port = 443
+        }
+        source_addresses      = ["10.10.1.0/24"]
+        destination_fqdns     = [""]
+        }
+    
+      rule {
+        name                  = "UpdatesForOneDrive"
+        protocols             {
+          type = "Https"
+          port = 443
+        }
+        source_addresses      = ["10.10.1.0/24"]
+        destination_fqdns     = ["*.sfx.ms"]
+        }
+    
+      rule {
+        name                  = "DigitcertCRL"
+        protocols             {
+          type = "Https"
+          port = 443
+        }
+        source_addresses      = ["10.10.1.0/24"]
+        destination_fqdns     = ["*.digicert.com"]
+        }
+    
+      rule {
+        name                  = "AzureDNSresolution1"
+        protocols             {
+          type = "Https"
+          port = 443
+        }
+        source_addresses      = ["10.10.1.0/24"]
+        destination_fqdns     = ["*.azure-dns.com"]
+        }
+    
+      rule {
+        name                  = "AzureDNSresolution2"
+        protocols             {
+          type = "Https"
+          port = 443
+        }
+        source_addresses      = ["10.10.1.0/24"]
+        destination_fqdns     = ["*.azure-dns.net"]
+        }
+    
